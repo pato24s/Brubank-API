@@ -1,7 +1,7 @@
 import api
 import unittest
 
-from unittest.mock import patch
+#from unittest.mock import patch
 
 HTTP_200_OK = 200
 HTTP_404_NOT_FOUND = 404
