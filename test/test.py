@@ -8,7 +8,6 @@ from unittest.mock import patch
 from unittest.mock import Mock
 import json
 from nose.tools import assert_is_none, assert_list_equal
-#from unittest.mock import patch
 
 HTTP_200_OK = 200
 HTTP_404_NOT_FOUND = 404
