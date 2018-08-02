@@ -1,7 +1,6 @@
 from flask import jsonify
 from flask_api import FlaskAPI, status
 import requests
-# import urllib.request
 import json
 import diccLanguages
 from diccLanguages import diccLangs
