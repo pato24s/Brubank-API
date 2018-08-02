@@ -5,27 +5,31 @@ Python3
 bibliotecas de python: flask, urllib, json, unittest
 
 
-La mejor forma de instalar estas es a través de pip
+La mejor forma de instalar estas es a través de pip (correr como sudo)
 Ejemplo: pip3 install flask
 
 
 ##Como correr la API
 
-Ejecutar el siguiente comando en el directorio:
+Ejecutar el siguiente comandos en el directorio:
 
 python3 api.py
 
-De esta forma se levantará el server usualmente en http://127.0.0.1:8080
+De esta forma se levantará el server. Usualmente en http://127.0.0.1:8080
 
 ##Como utilizarla
 
 La API cuenta con un solo endpoint, siendo este /applicant/:username
 
-Ejemplo de uso: curl 'http://localhost:8080/applicant/pato24s
+Ejemplo de uso: curl 'http://localhost:8080/applicant/pato24s'
 
 Si el username no existe en GitHub la Api devolverá un 404 con un mensaje de eror correspondiente, dado que esta es la respuesta dada por la API de GitHub
 
 Caso contrario la API devolverá un 200 mostrando con que equipo tiene más afinidad el usuario buscado.
+
+##Como correr los tests
+Ejecutar en la carpeta test el siguiente comando: python3 test.py
+
 
 ##Decisiones
 
