@@ -1,18 +1,19 @@
 ##Requisitos:
 
-Python2.7
+Python3
 
-bibliotecas de python: flask, urllib, json
+bibliotecas de python: flask, urllib, json, unittest
+
 
 La mejor forma de instalar estas es a través de pip
-Ejemplo: pip install flask
+Ejemplo: pip3 install flask
 
 
 ##Como correr la API
 
 Ejecutar el siguiente comando en el directorio:
 
-FLASK_APP=api.py flask run
+python3 api.py
 
 De esta forma se levantará el server usualmente en http://127.0.0.1:8080
 
@@ -44,7 +45,5 @@ Se agregó un caso que chequea si se obtuvo un 403 de parte de GitHub ya que, si
 Se podría ampliar el diccionario utilizando la información que brinda este archivo https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
 
 Agregar el uso de una pequeña caché
-
-Arreglar los tests (poder mockear respuests y generar los tests detallados anteriormente)
 
 Ver si se prefiere otro tipo de respuesta por parte de la API. Ejemplo: devolver los 3 equipos con un % de afinidad. Siendo este 100*(cantidad de repos que matchean con el equipo)/(cantidad total de repos)

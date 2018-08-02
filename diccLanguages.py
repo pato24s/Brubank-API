@@ -3,7 +3,8 @@ diccLangs = {
 			 'C++': 'Backend', 
 			 'Python': 'Backend', 
 			 'Jupyter Notebook': 'Backend', 
-			 'CSS': 'Web', 'JavaScript': 'Web', 
+			 'CSS': 'Web', 
+			 'JavaScript': 'Web', 
 			 'TeX': 'Web', 
 			 'Shell' : 'Backend', 
 			 'HTML' : 'Web', 
@@ -11,5 +12,6 @@ diccLangs = {
 			 'Swift' : 'Mobile',
 			 'Kotlin' : 'Mobile',
 		     'Objective-C' : 'Mobile',
-		     'Smalltalk' : 'Backend'	
+		     'Smalltalk' : 'Backend',
+		     'Java' : 'Backend'	
 			 }
