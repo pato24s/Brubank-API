@@ -2,7 +2,7 @@
 
 Python3
 
-bibliotecas de python: flask, urllib, json, unittest
+bibliotecas de python: flask, flask_api, json, unittest, requests
 
 
 La mejor forma de instalar estas es a través de pip (correr como sudo)
