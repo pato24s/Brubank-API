@@ -47,10 +47,10 @@ class apiTestCase(unittest.TestCase):
 
 		response = self.app.get('/applicant/impronunciable')
 
-		jsonValidUserBackend = {'applicant': 'impronunciable', 'team': 'Web'}
+		jsonValidUserWeb = {'applicant': 'impronunciable', 'team': 'Web'}
 
 		self.assertEqual(response.status_code,HTTP_200_OK)
-		self.assertEqual(response.json, jsonValidUserBackend)
+		self.assertEqual(response.json, jsonValidUserWeb)
 
 
 	@patch('requests.get')
@@ -64,10 +64,10 @@ class apiTestCase(unittest.TestCase):
 
 		response = self.app.get('/applicant/pepeMobile')
 
-		jsonValidUserBackend = {'applicant': 'pepeMobile', 'team': 'Mobile'}
+		jsonValidUserMobile = {'applicant': 'pepeMobile', 'team': 'Mobile'}
 
 		self.assertEqual(response.status_code,HTTP_200_OK)
-		self.assertEqual(response.json, jsonValidUserBackend)
+		self.assertEqual(response.json, jsonValidUserMobile)
 
 
 	@patch('requests.get')
