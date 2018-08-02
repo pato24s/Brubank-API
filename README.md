@@ -1,17 +1,23 @@
 ## Requisitos:
 
-Python3
+  * Python3
 
-bibliotecas de python: flask, flask_api, json, unittest, requests
+  * bibliotecas de python: 
+    *  flask
+    *  flask_api
+    *  json
+    *  unittest
+    *  requests
 
 
 La mejor forma de instalar estas es a través de pip (correr como sudo)
+
 Ejemplo: pip3 install flask
 
 
 ## Como correr la API
 
-Ejecutar el siguiente comandos en el directorio:
+Ejecutar el siguiente comando en el directorio:
 
 python3 api.py
 
@@ -33,21 +39,21 @@ Ejecutar en la carpeta test el siguiente comando: python3 test.py
 
 ## Decisiones
 
-Se decidió crear un diccionario en el que los pares (clave,valor) corresponden a pares (lenguaje de programacion, equipo). Este se encuentra en el archivo diccLanguages.py
+  * Se decidió crear un diccionario en el que los pares (clave,valor) corresponden a pares (lenguaje de programacion, equipo). Este se encuentra en el archivo diccLanguages.py
 Como se puede apreciar, dicho archivo se encuentra incompleto dado que github no ofrece una forma sencilla de obtener todos los lenguajes de programación reconocidos por este. Más adelante explicaré una posible solución.
 
-El criterio de elección de equipo es el siguiente: Se recorre sobre todos los repos del usuario, se ve que lenguaje es el más utilizado en cada uno, y ese lenguaje se traduce en un potencial equipo. El equipo que tenga más traducciones hechas es el elegido. En caso de empate se devuelve uno de los dos.
+  * El criterio de elección de equipo es el siguiente: Se recorre sobre todos los repos del usuario, se ve que lenguaje es el más utilizado en cada uno, y ese lenguaje se traduce en un potencial equipo. El equipo que tenga más traducciones hechas es el elegido. En caso de empate se devuelve uno de los dos.
 
-No se utilizó caché
+  * No se utilizó caché
 
-Se agregó un caso que chequea si se obtuvo un 403 de parte de GitHub ya que, si bien es una API pública, puede ocurrir que se exceda el rate limit de dicha API
+  * Se agregó un caso que chequea si se obtuvo un 403 de parte de GitHub ya que, si bien es una API pública, puede ocurrir que se exceda el rate limit de dicha API
 
 
 
 ## Trabajo pendiente
 
-Se podría ampliar el diccionario utilizando la información que brinda este archivo https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
+  * Se podría ampliar el diccionario utilizando la información que brinda este archivo https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
 
-Agregar el uso de una pequeña caché
+  * Agregar el uso de una pequeña caché
 
-Ver si se prefiere otro tipo de respuesta por parte de la API. Ejemplo: devolver los 3 equipos con un % de afinidad. Siendo este 100*(cantidad de repos que matchean con el equipo)/(cantidad total de repos)
+  * Ver si se prefiere otro tipo de respuesta por parte de la API. Ejemplo: devolver los 3 equipos con un % de afinidad. Siendo este 100*(cantidad de repos que matchean con el equipo)/(cantidad total de repos)
