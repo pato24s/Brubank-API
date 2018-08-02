@@ -1,4 +1,4 @@
-##Requisitos:
+## Requisitos:
 
 Python3
 
@@ -9,7 +9,7 @@ La mejor forma de instalar estas es a través de pip (correr como sudo)
 Ejemplo: pip3 install flask
 
 
-##Como correr la API
+## Como correr la API
 
 Ejecutar el siguiente comandos en el directorio:
 
@@ -17,7 +17,7 @@ python3 api.py
 
 De esta forma se levantará el server. Usualmente en http://127.0.0.1:8080
 
-##Como utilizarla
+## Como utilizarla
 
 La API cuenta con un solo endpoint, siendo este /applicant/:username
 
@@ -27,11 +27,11 @@ Si el username no existe en GitHub la Api devolverá un 404 con un mensaje de er
 
 Caso contrario la API devolverá un 200 mostrando con que equipo tiene más afinidad el usuario buscado.
 
-##Como correr los tests
+## Como correr los tests
 Ejecutar en la carpeta test el siguiente comando: python3 test.py
 
 
-##Decisiones
+## Decisiones
 
 Se decidió crear un diccionario en el que los pares (clave,valor) corresponden a pares (lenguaje de programacion, equipo). Este se encuentra en el archivo diccLanguages.py
 Como se puede apreciar, dicho archivo se encuentra incompleto dado que github no ofrece una forma sencilla de obtener todos los lenguajes de programación reconocidos por este. Más adelante explicaré una posible solución.
@@ -44,7 +44,7 @@ Se agregó un caso que chequea si se obtuvo un 403 de parte de GitHub ya que, si
 
 
 
-##Trabajo pendiente
+## Trabajo pendiente
 
 Se podría ampliar el diccionario utilizando la información que brinda este archivo https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
 
