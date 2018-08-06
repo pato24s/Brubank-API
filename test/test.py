@@ -80,10 +80,25 @@ class apiTestCase(unittest.TestCase):
 
 		response = self.app.get('/applicant/pato24st')
 
-		jsonInvalidUser = {'mensaje': 'User pato24st is not registered in GitHub'}
+		jsonInvalidUser = {'message': 'User pato24st is not registered in GitHub'}
 
 		self.assertEqual(response.status_code,HTTP_404_NOT_FOUND)
 		self.assertEqual(response.json, jsonInvalidUser)
+
+	@patch('requests.get')
+	def test_invalid_language_is_not_considered_and_returns_code_200(self, mockResponse):
+		with open('./utils/jsonInvalidLang') as json_file:
+			jsonResponse = json.load(json_file)
+
+		mockResponse.return_value.json_return_value = jsonResponse
+		mockResponse.return_value.status_code=200
+
+		response = self.app.get('applicant/jtyjty99999')
+
+		jsonInvalidLang = {"applicant": "jtyjty99999", "team": "Web"}
+
+		self.assertEqual(response.status_code,HTTP_200_OK)
+		self.assertEqual(response.json, jsonInvalidLang)
 
 
 if __name__ == '__main__':

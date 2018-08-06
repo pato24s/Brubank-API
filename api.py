@@ -16,19 +16,20 @@ def potentialTeamForApplicant(applicant):
 	responseCode= response.status_code
 
 	if responseCode==404:
-		result = {"mensaje": "User "+applicant+" is not registered in GitHub"}
+		result = {"message": "User "+applicant+" is not registered in GitHub"}
 	elif responseCode==403:
-		result = {"mensaje": "Forbidden. Possible cause: GitHub API rate-limit exceeded"}
+		result = {"message": "Forbidden. Possible cause: GitHub API rate-limit exceeded"}
 	else:
 		data = response.json()
 		numberOfRepos = len(data)
 
-		potentialTeams = {'Backend':0, 'Mobile':0, 'Web':0}
+		potentialTeams = {'Backend':0, 'Mobile':0, 'Web':0, 'Unknown':0}
 
 		for repo in range(0,numberOfRepos):
 			repoLanguage = data[repo]['language']
-			languageTeam = diccLangs[repoLanguage]
-			potentialTeams[languageTeam] += 1
+			if repoLanguage in diccLangs:
+				languageTeam = diccLangs[repoLanguage]
+				potentialTeams[languageTeam] += 1
 
 		bestTeamForApplicant =  max(potentialTeams, key=potentialTeams.get)
 	
