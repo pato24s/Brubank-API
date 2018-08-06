@@ -12,6 +12,11 @@ from nose.tools import assert_is_none, assert_list_equal
 HTTP_200_OK = 200
 HTTP_404_NOT_FOUND = 404
 
+def startTestWith(aJsonToMock, aResponseCodeToMock, mockResponse):
+	with open('./utils/'+aJsonToMock) as json_file:
+		jsonResponse = json.load(json_file)
+	mockResponse.return_value.json.return_value = jsonResponse
+	mockResponse.return_value.status_code=aResponseCodeToMock
 
 class apiTestCase(unittest.TestCase):
 
@@ -19,13 +24,12 @@ class apiTestCase(unittest.TestCase):
 		api.app.testing = True
 		self.app = api.app.test_client()
 	
+
+
 	@patch('requests.get')
 	def test_valid_username_returns_code_200_and_valid_json_with_backend_as_team(self, mockResponse):
-		with open('./utils/jsonValidUserBackend') as json_file:  
-			jsonResponse = json.load(json_file)
-
-		mockResponse.return_value.json.return_value = jsonResponse
-		mockResponse.return_value.status_code=200
+		
+		startTestWith('jsonValidUserBackend', 200, mockResponse)
 
 
 		response = self.app.get('/applicant/pato24s')
@@ -37,11 +41,8 @@ class apiTestCase(unittest.TestCase):
 
 	@patch('requests.get')
 	def test_valid_username_returns_code_200_and_valid_json_with_web_as_team(self, mockResponse):
-		with open('./utils/jsonValidUserWeb') as json_file:  
-			jsonResponse = json.load(json_file)
-
-		mockResponse.return_value.json.return_value = jsonResponse
-		mockResponse.return_value.status_code=200
+		
+		startTestWith('jsonValidUserWeb', 200, mockResponse)
 
 
 		response = self.app.get('/applicant/impronunciable')
@@ -54,11 +55,9 @@ class apiTestCase(unittest.TestCase):
 
 	@patch('requests.get')
 	def test_valid_username_returns_code_200_and_valid_json_with_mobile_as_team(self, mockResponse):
-		with open('./utils/jsonValidUserMobile') as json_file:  
-			jsonResponse = json.load(json_file)
+		
+		startTestWith('jsonValidUserMobile', 200, mockResponse)
 
-		mockResponse.return_value.json.return_value = jsonResponse
-		mockResponse.return_value.status_code=200
 
 
 		response = self.app.get('/applicant/pepeMobile')
@@ -71,11 +70,9 @@ class apiTestCase(unittest.TestCase):
 
 	@patch('requests.get')
 	def test_invalid_username_returns_code_404_and_error_msg(self, mockResponse):
-		with open('./utils/jsonInvalidUser') as json_file:  
-			jsonResponse = json.load(json_file)
+		
+		startTestWith('jsonInvalidUser', 404, mockResponse)
 
-		mockResponse.return_value.json.return_value = jsonResponse
-		mockResponse.return_value.status_code=404
 
 
 		response = self.app.get('/applicant/pato24st')
@@ -87,11 +84,8 @@ class apiTestCase(unittest.TestCase):
 
 	@patch('requests.get')
 	def test_invalid_language_is_not_considered_and_returns_code_200(self, mockResponse):
-		with open('./utils/jsonInvalidLang') as json_file:
-			jsonResponse = json.load(json_file)
 
-		mockResponse.return_value.json_return_value = jsonResponse
-		mockResponse.return_value.status_code=200
+		startTestWith('jsonInvalidLang', 200, mockResponse)
 
 		response = self.app.get('applicant/jtyjty99999')
 
